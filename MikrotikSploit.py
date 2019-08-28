@@ -16,8 +16,6 @@
 import sys
 sys.path.append('./modules/')
 from home import RunScript
-from color import *
-
 
 class MIK(object):
     def __init__(self):
