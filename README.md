@@ -57,7 +57,7 @@ $ python3 MikrotikSploit.py
 
 -------------------------------------
 
-### _☣ Install vulnx on Termux_
+### _☣ Install MikrotikSploit on Termux_
 
 ```BASH
 $ pkg update
@@ -71,7 +71,7 @@ $ python3 MikrotikSploit.py
 ```
 
 
-### _☣ Install vulnx in Windows_
+### _☣ Install MikrotikSploit in Windows_
 
 - [click here](https://github.com/HathemAhmed/MikrotikSploit/archive/master.zip) to download MikrotikSploit
 - download and install python3
