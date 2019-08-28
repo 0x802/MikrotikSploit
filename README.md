@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/HathemAhmed/MikrotikSploit"><img src="https://raw.githubusercontent.com/HathemAhmed/MikrotikSploit/master/modules/images/s.jpg" alt="MikrotikSploit"></a>
+  <a href="https://github.com/HathemAhmed/MikrotikSploit"><img src="https://www.charbase.com/images/glyph/9763" alt="MikrotikSploit"></a>
   <br>
   MikrotikSploit
   <br>
