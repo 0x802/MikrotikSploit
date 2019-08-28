@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">'☣ MikrotikSploit is a script that searches for and exploits Mikrotik network vulnerabilities</h4>
+<h4 align="center">MikrotikSploit is a script that searches for and exploits Mikrotik network vulnerabilities</h4>
 
 
 ![Screenshot from 2019-06-19 05-22-04](https://raw.githubusercontent.com/HathemAhmed/MikrotikSploit/master/modules/images/b1.png)
