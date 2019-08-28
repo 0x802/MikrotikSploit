@@ -1,15 +1,15 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/HathemAhmed/MikrotikSploit"><img src="b1.png" alt="VulnX"></a>
+  <a href="https://github.com/HathemAhmed/MikrotikSploit"><img src="https://raw.githubusercontent.com/HathemAhmed/MikrotikSploit/master/modules/images/s.jpg" alt="MikrotikSploit"></a>
   <br>
-  VulnX
+  MikrotikSploit
   <br>
 </h1>
 
-<h4 align="center">'MikrotikSploit is a script that searches for and exploits Mikrotik network vulnerabilities</h4>
+<h4 align="center">'☣ MikrotikSploit is a script that searches for and exploits Mikrotik network vulnerabilities</h4>
 
 
-![Screenshot from 2019-06-19 05-22-04](https://user-images.githubusercontent.com/23563528/59736664-7c2fed00-9252-11e9-936d-53ea02628711.png)
+![Screenshot from 2019-06-19 05-22-04](https://raw.githubusercontent.com/HathemAhmed/MikrotikSploit/master/modules/images/b1.png)
 
 
 
@@ -19,7 +19,7 @@ Loophole know the username and password of the admin panel of the network Mikrot
 
 -------------------------------------
 
-### _🕷️ Features_
+### _☣ Features_
 
 - Checks for vulnerabilities
 - Integrated guess system on login cards
@@ -30,7 +30,7 @@ Loophole know the username and password of the admin panel of the network Mikrot
 
 -------------------------------------
 
-### _🕷️ Available command line options_
+### _☣ Available command line options_
 [`READ MikrotikSploi WIKI`](https://github.com/HathemAhmed/MikrotikSploi/wiki/Usage)
 
     usage: MikrotikSploit [options]
@@ -44,7 +44,7 @@ Loophole know the username and password of the admin panel of the network Mikrot
 
 -------------------------------------
 
-### _🕷️ Docker_
+### _☣ Docker_
 
 MikrotikSploi in DOCKER !!.
 
@@ -57,7 +57,7 @@ $ python3 MikrotikSploit.py
 
 -------------------------------------
 
-### _🕷️ Install vulnx on Termux_
+### _☣ Install vulnx on Termux_
 
 ```BASH
 $ pkg update
@@ -65,15 +65,15 @@ $ pkg install -y git
 $ git clone https://github.com/HathemAhmed/MikrotikSploit.git
 $ cd MikrotikSploit
 $ chmod +x setup.py
-$ ./setup install
+$ ./setup.py install
 $ python3 -m pip install requirements.txt
 $ python3 MikrotikSploit.py
 ```
 
 
-### _🕷️ Install vulnx in Windows_
+### _☣ Install vulnx in Windows_
 
-- [click here](https://github.com/HathemAhmed/MikrotikSploit/archive/master.zip) to download vulnx
+- [click here](https://github.com/HathemAhmed/MikrotikSploit/archive/master.zip) to download MikrotikSploit
 - download and install python3
 - unzip **MikrotikSploit-master.zip** in ***c:/***
 - open the command prompt **cmd**.
@@ -85,7 +85,7 @@ $ python3 MikrotikSploit.py
 
 -------------------------------------
 
-### _🕷️ Versions_
+### _☣ Versions_
 - v0.1
 
 -------------------------------------
@@ -96,7 +96,7 @@ $ python3 MikrotikSploit.py
 
 -------------------------------------
 
-### _🕷️ Contribution & License_
+### _☣ Contribution & License_
 
 Do you want to have a conversation in private? email me : hathem63636@gmail.com
 
