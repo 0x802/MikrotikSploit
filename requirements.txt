@@ -1,0 +1,6 @@
+colorama
+requests
+threading
+struct
+socket
+binascii
