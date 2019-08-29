@@ -95,3 +95,20 @@ def BIN():
     return [bin1, bin2]
 
 
+def EX818M():
+    S_ = """ 
+Examples:
+    |
+    |
+    |---> Enter the URL Page Login : http://a.com
+    |---> Enter the Min Number     : 72940000
+    |---> Enter the MXn Number     : 72949999
+    
+    """
+    S2_ = """
+Examples:
+    |
+    |
+    |--->  Enter the URL For DoDs: http://a.com
+    """
+    return [S_, S2_]
