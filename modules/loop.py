@@ -47,7 +47,6 @@ class LOOP:
         self.find1 = True
         self.find2 = True
 
-
     def LOOPS(self):
 
         global ADDR,MACK
@@ -58,19 +57,14 @@ class LOOP:
                 self._ASC_ = asc()
 
                 if self._ASC_.strip() is "1":
-                    Next_Url = "login"
+
                     url = input(f"{W}[{P} * {W}]{B} Enter the URL Page Login{N}: ")
-                    asc_url = input(f"{W}[{P} * {W}]{B} the Next Url is {Next_Url} {W}[{P}y{W}/{R}n{W}]{N}:").upper()
-                    if asc_url == "N":
-                        Next_Url = input(f"{W}[{P} * {W}]{B} Enter the Next URL Page Login{N}: ")
-                    else: pass
+
                     minnum = input(f"{W}[{P} * {W}]{B} Enter the Min Number {N}: ")
                     maxnum = input(f"{W}[{P} * {W}]{B} Enter the Max Number {N}: ")
 
                     try:
-                        MAIN.run(True, url, 80, f"{minnum},{maxnum}",
-                                 f"/{Next_Url}" if "/" not in Next_Url else Next_Url
-                                 )
+                        MAIN.run(True, url, 80, f"{minnum},{maxnum}")
                     except:
                         open("./logs/logs.txt", "a").write(f"\n{timeS()}"
                         f" Error Getting Password Cards Page Login My Network\n{timeS()} Error "
