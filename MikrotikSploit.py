@@ -13,9 +13,10 @@
 # *******************************************************************
 
 
-import sys
+import sys,os
 sys.path.append('./modules/')
 from home import RunScript
+
 
 class MIK(object):
     def __init__(self):
@@ -29,4 +30,13 @@ class MIK(object):
 
 
 if __name__ == '__main__':
+
+    try:
+        _FIND_ = os.listdir("..")
+        if "logs" not in _FIND_: os.system("mkdir logs")
+
+    except OSError:
+        print(f"{W}[{R} - {W}]{B} Error mkdir logs ")
+        exit()
+
     MIK().HOME()
