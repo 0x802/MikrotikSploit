@@ -73,7 +73,7 @@ class LOOP:
 
                         MAIN.run(True, url, 80, f"{minnum},{maxnum}")
 
-                    except NameError:
+                    except NameError or ValueError:
                         print(f"{W}[{R} - {W}]{B} Error For url OR numbers !!!!")
 
                         open("./logs/logs.txt", "a").write(f"\n{timeS()}"
