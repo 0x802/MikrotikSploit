@@ -51,7 +51,7 @@ MikrotikSploi in DOCKER !!.
 ```bash
 $ git clone https://github.com/HathemAhmed/MikrotikSploit.git
 $ cd MikrotikSploit
-$ python3 -m pip install requirements.txt
+$ python3 -m pip install -r requirements.txt
 $ python3 MikrotikSploit.py
 ```
 
@@ -66,7 +66,7 @@ $ git clone https://github.com/HathemAhmed/MikrotikSploit.git
 $ cd MikrotikSploit
 $ chmod +x setup.py
 $ ./setup.py install
-$ python3 -m pip install requirements.txt
+$ python3 -m pip install -r requirements.txt
 $ python3 MikrotikSploit.py
 ```
 
@@ -79,7 +79,7 @@ $ python3 MikrotikSploit.py
 - open the command prompt **cmd**.
 ```
 > cd c:/MikrotikSploit-master
-> python -m pip install requirements.txt
+> python -m pip install -r requirements.txt
 > python MikrotikSploit.py
 ```
 
