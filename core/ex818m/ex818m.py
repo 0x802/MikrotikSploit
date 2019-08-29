@@ -121,6 +121,7 @@ def index_exploit(ip, port, number, file):
                      , minNumber=minNumber
                      , NL=int(AllFor+1)
                      , name_form=NameForm)
+        if smpleA[2] != 200:print(f"[ - ] Error Not Find This Page it is [ {smpleA[2]} ] ");exit()
 
         if AllFor == 0:
 
@@ -158,7 +159,7 @@ def index_exploit(ip, port, number, file):
 [{Y + ' + ' + N if smpleA[0] < 4000 and smpleA[2] is 200  else R + ' - ' + N}] Password            : {f'0{Password}' 
         if ZERO is True else Password} 
 [{Y + ' + ' + N if smpleA[0] < 4000 and smpleA[2] is 200 else R + ' - ' + N}] Active-Hack         : {Y + "Find" + N if 
-        smpleA[0] < 4000 and smpleA[2] is 200 
+        smpleA[0] < 4000 and smpleA[2] is 200
         else R + "No Find" + N}"""
 
         add(
