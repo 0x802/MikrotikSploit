@@ -85,7 +85,7 @@ Examples:
     return [S_, S2_]
 
 
-class EX_BIN(object):
+class EX_BIN:
     def __init__(self):
         pass
 
