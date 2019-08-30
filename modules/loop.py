@@ -147,7 +147,7 @@ class LOOP:
         try:
             write(f"\n\n{WOW}Exploiting .................{N}", 10)
 
-            run = RUN.soRun2(True, macks)
+            run = RUN().soRun2(macks)
 
             print(run)
 
