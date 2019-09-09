@@ -88,11 +88,8 @@ def index_exploit(ip, port, number, file):
     number = number.split(',')
     if number[1].startswith("0") is True:ZERO = True
     else:ZERO = False
+    password_num = errors_num = minNumber = AllFor = int()
 
-    password_num = int()
-    errors_num = int()
-    minNumber = int()
-    AllFor = int()
     Next_save = int() + 1
 
     try:
@@ -107,11 +104,13 @@ def index_exploit(ip, port, number, file):
             if _NAME_ == "text":
                 NameForm = i.get("name")
                 break
+                
             if _NAME_ == "password":
                 NameForm = i.get("name")
                 break
-    except:
-        print("None")
+
+    except:NameForm = "username"
+        
 
     for Password in range(int(number[0]), int(number[1])):
 
