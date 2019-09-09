@@ -62,7 +62,10 @@ info script : this script for Hack Networks Mikrotik """)
 
     CLEAR()
 
-
+def writeEr(u,i,x):
+    open("./logs/logs.txt", "a").write(f"\n{timeS()}"
+                                               f" Error Getting Password Cards Page Login My Network\n{timeS()} Error "
+                                               f"Url={u} Min Number={i} Max Number={x}")
 class LOOP:
     def __init__(self):
         self._NUM_ = int()
@@ -84,18 +87,18 @@ class LOOP:
 
         try:
 
-            MAIN.run(True, url, 80, f"{minnum},{maxnum}")
+            MAIN().run(url, 80, f"{minnum},{maxnum}")
 
-        except NameError or ValueError:
-            print(f"{W}[{R} - {W}]{B} Error For url OR numbers !!!!")
+        except NameError as e:
+            print(f"{W}[{R} - {W}]{B} Error For url OR numbers !!!!\n{W}[{R} !!! {W}]{B} {e}")
+            writeEr(url,minnum,maxnum)
 
-            open("./logs/logs.txt", "a").write(f"\n{timeS()}"
-                                               f" Error Getting Password Cards Page Login My Network\n{timeS()} Error "
-                                               f"Url={url} Min Number={minnum} Max Number={maxnum}")
+        except ValueError as e:
+            print(f"{W}[{R} - {W}]{B} Error For url OR numbers !!!!\n{W}[{R} !!! {W}]{B} {e}")
+            writeEr(url,minnum,maxnum)
 
-        except requests.exceptions.ConnectionError:
-
-            print(f"{W}[{R} - {W}]{B} Error For url !!!!")
+        except requests.exceptions.ConnectionError as e:
+            print(f"{W}[{R} - {W}]{B} Error For url !!!!\n{W}[{R} !!! {W}]{B} {e}")
 
     def ExploitBox(self):
         global adders, macks
@@ -211,4 +214,4 @@ class LOOP:
 
             self.LOOPS()
 
-######################### END #########################
+# ######################## END #########################
