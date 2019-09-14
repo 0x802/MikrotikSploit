@@ -63,7 +63,7 @@ def _INDEX(*args, **kwargs):
     _PRINT(f"[ {Y}===>{N} ] Find {W}{args[3]}{N} Passwords and write in {os.getcwd()}/Password.txt ^^\n") if int(args[3]) > 0 else ""
 
     _P = (f"""    {R}[{N}    {args[0] + 1}    {R}]{N}
-[{B} * {N}] SIZE     : {args[1].headers['Content-Length']}
+[{B} * {N}] SIZE     : {args[1].headers['Content-Length'][0]} KB
 [{B} * {N}] PASSWORD : {args[2]}
 [{B} * {N}] TIMEOUT  : {args[1].elapsed.total_seconds()}\n\n\n--- Enter Ctrl+C for (exit) ---""")
     return _PRINT(_P)
