@@ -15,7 +15,7 @@
 from color import *
 
 
-def agent():
+def agent(NUM):
     agents = [
         "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) " +
         "Gecko/20100101 Firefox/51.0",
@@ -47,9 +47,9 @@ def agent():
         "like Gecko) Chrome/56.0.2924.87" +
         "Mobile Safari/537.36",
         "Mozilla/5.0 (compatible; Googlebot/2.1; " +
-        "+http://www.google.com/bot.html)"
+        "(http://www.google.com/bot.html)"
     ]
-    return agents
+    return agents[int(NUM)]
 
 
 def asc():
