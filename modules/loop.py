@@ -57,7 +57,7 @@ Name        : Hathem Ahmed (MHM)
 Facebook    : https://FB.COM/mhm.hack
 Github      : https://github.com/HathemAhmed
 Version     : v0.1
-info script : this script for Hack Networks Mikrotik """)
+info script : this script for Hack Mikrotik Router """)
     input(f"{WOW}\n\n------ (Enter) ------{N}")
 
     CLEAR()
@@ -87,7 +87,7 @@ class LOOP:
 
         try:
 
-            MAIN().run(url, 80, f"{minnum},{maxnum}")
+            MAIN().run(url,minnum,maxnum)
 
         except NameError as e:
             print(f"{W}[{R} - {W}]{B} Error For url OR numbers !!!!\n{W}[{R} !!! {W}]{B} {e}")
