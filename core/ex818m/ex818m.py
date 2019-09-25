@@ -43,8 +43,9 @@ def _PRINT(*args, **kwargs):
 
 
 def URL_CLEAR(*args, **kwargs):
-    _RE_ = args[0].replace("/login","") if "/login" in args[0] else args[0]
-    _RE_ = SP(r"[http://|https://]", _RE_)[-1]
+    _RE_ = args[0]
+    _RE_ = _RE_.replace("http://","") if 'http' in _RE_ else _RE_
+    _RE_ = _RE_.rsplit("/")[0] if "/" in args[0] else _RE_
     return _RE_
 
 
@@ -63,7 +64,8 @@ def _INDEX(*args, **kwargs):
     _PRINT(f"[ {Y}===>{N} ] Find {W}{args[3]}{N} Passwords and write in {os.getcwd()}/Password.txt ^^\n") if int(args[3]) > 0 else ""
 
     _P = (f"""    {R}[{N}    {args[0] + 1}    {R}]{N}
-[{B} * {N}] SIZE     : {args[1].headers['Content-Length'][0]} KB
+[{B} * {N}] SIZE     : {args[1].headers['Content-Length']} Bytes
+[{B} * {N}] URL      : {URL_CLEAR(args[1].url)}
 [{B} * {N}] PASSWORD : {args[2]}
 [{B} * {N}] TIMEOUT  : {args[1].elapsed.total_seconds()}\n\n\n--- Enter Ctrl+C for (exit) ---""")
     return _PRINT(_P)
@@ -85,7 +87,7 @@ def _REQUESTS_SU(*args, **kwargs):
         _GET = _S.post(url=f"http://{HOST}/login", data=_DATA)
 
     except:
-        _PRINT(f"[{R} - {N}] Sorry ERROR For Requests !!")
+        _PRINT(f"[{R} - {N}] Sorry ERROR For Connection !!")
         sys.exit(0)
 
 
