@@ -58,7 +58,8 @@ def asc():
 {W}[{N} 2 {W}]{B} Hack Mikrotik Panel 
 {W}[{N} 3 {W}]{B} DDoS Network 
 {W}[{N} 4 {W}]{B} About Us  
-{W}[{N} 5 {W}]{B} Exit  
+{W}[{N} 5 {W}]{B} Update
+{W}[{N} 6 {W}]{B} Exit  
 \n\n
 {W}==================={N}
 {B}{F2}Enter A Number{N}:""")
