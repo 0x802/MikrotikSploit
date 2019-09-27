@@ -69,7 +69,7 @@ python3 MikrotikSploit.py
 {W}[{N} 2 {W}]{B} Hack Mikrotik Panel {W}|{B} Exploit Mikrotik Admin Panel{N}
 {W}[{N} 3 {W}]{B} DDoS Network        {W}|{B} DDoS attack for NetWork{N}
 {W}[{N} 4 {W}]{B} About Us            {W}|{B} My Information {N}
-{W}[{N} 5 {W}]{B} Exit                {W}|{B} Logout in This Script{N}
-
+{W}[{N} 5 {W}]{B} Update              {W}|{B} UPDATE The Tool{N}
+{W}[{N} 6 {W}]{B} Exit                {W}|{B} Logout in This Script{N}
             """
         return print(self.HELP)
