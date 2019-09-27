@@ -17,7 +17,7 @@ import sys
 import os
 import time
 import requests
-
+import subprocess
 from tools import asc, EX818M
 from color import *
 
@@ -207,6 +207,15 @@ class LOOP:
                     Inf()
 
                 elif _ASC_.strip() is "5":
+                    UB = os.system('cd ../&& rm -r Mikrotik && git clone https://github.com/hathemahmed/MikrotikSploit.git')
+                    if UB != 0x00:
+                        print("[!!!] Error For UPDATE")
+                        exit()
+                    else:
+                        print("[ + ] Done UPDATE !")
+                        exit()
+                
+                elif _ASC_.strip() is "6":
                     exit()
 
         except KeyboardInterrupt:
