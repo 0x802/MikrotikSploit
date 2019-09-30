@@ -207,13 +207,18 @@ class LOOP:
                     Inf()
 
                 elif _ASC_.strip() is "5":
-                    UB = os.system('cd ../&& rm -r Mikrotik && git clone https://github.com/hathemahmed/MikrotikSploit.git')
-                    if UB != 0x00:
-                        print("[!!!] Error For UPDATE")
-                        exit()
-                    else:
-                        print("[ + ] Done UPDATE !")
-                        exit()
+                    ASCY = input("[ {R}!{N} ] Are you sure For Remove MikrotikSploit and UPDATE [Y/N]: ")
+
+                    if ASCY.upper()[0] == "Y":
+                        UB = os.system('cd ../&& rm -r MikrotikSploit && git clone https://github.com/hathemahmed/MikrotikSploit.git')
+                        if UB != 0x00:
+                            print("[{R}!{N}] Error For UPDATE")
+                            exit()
+                        else:
+                            print("[ {B}+{N} ] Done UPDATE !")
+                            exit()
+
+                    else:pass
                 
                 elif _ASC_.strip() is "6":
                     exit()
