@@ -20,14 +20,11 @@ import requests
 import subprocess
 from tools import asc, EX818M
 from color import *
-
 sys.path.append('core/ex818m/')
 from ex818m import MAIN, write, cou
-
 sys.path.append('core/ExploitPanelAdmin/')
 from find import MAC
 from run import RUN
-
 
 def CLEAR():
     if sys.platform.startswith("win") is True:
@@ -58,7 +55,7 @@ Facebook    : https://FB.COM/mhm.hack
 Github      : https://github.com/HathemAhmed
 Version     : v0.1
 info script : this script for Hack Mikrotik Router """)
-    input(f"{WOW}\n\n------ (Enter) ------{N}")
+    input(f"{WOW}\n\n++++++ (Enter) ++++++{N}")
 
     CLEAR()
 
@@ -89,14 +86,10 @@ class LOOP:
 
             MAIN().run(url,minnum,maxnum)
 
-        except NameError as e:
-            print(f"{W}[{R} - {W}]{B} Error For url OR numbers !!!!\n{W}[{R} !!! {W}]{B} {e}")
+        except Exception as e:
+            print(f"{W}[{R} - {W}]{B} Error For url OR numbers !!!\n{W}[{R} !!! {W}]{B} {e}")
             writeEr(url,minnum,maxnum)
-
-        except ValueError as e:
-            print(f"{W}[{R} - {W}]{B} Error For url OR numbers !!!!\n{W}[{R} !!! {W}]{B} {e}")
-            writeEr(url,minnum,maxnum)
-
+            
         except requests.exceptions.ConnectionError as e:
             print(f"{W}[{R} - {W}]{B} Error For url !!!!\n{W}[{R} !!! {W}]{B} {e}")
 
@@ -168,7 +161,7 @@ class LOOP:
 
         url = URL_CLEAR(url=url)
 
-        write(f"{WOW}WHITE .................{N}", 10)
+        write(f"{WOW} Please white .................{N}", 10)
 
         os.system("gcc -s ./core/DDoS/DDoS.c -o ./core/DDoS/DDoS")
 
@@ -227,5 +220,3 @@ class LOOP:
             CLEAR()
 
             self.LOOPS()
-
-# ######################## END #########################
