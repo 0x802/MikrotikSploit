@@ -61,7 +61,7 @@ def asc():
 {W}[{N} 5 {W}]{B} Update
 {W}[{N} 6 {W}]{B} Exit  
 \n\n
-{W}==================={N}
+{W}---------------------{N}
 {B}{F2}Enter A Number{N}:""")
 
     return ASCK
@@ -72,7 +72,7 @@ def EX818M():
 Examples:
     |
     |
-    |---> Enter the URL Page Login : http://a.com
+    |---> Enter the URL Page Login : http://a.net or 10.0.0.1
     |---> Enter the Min Number     : 72940000
     |---> Enter the MXn Number     : 72949999
     
@@ -81,7 +81,7 @@ Examples:
 Examples:
     |
     |
-    |--->  Enter the URL For DoDs: http://a.com
+    |---> Enter the URL For DDoS: http://a.net
     """
     return [S_, S2_]
 
