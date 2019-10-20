@@ -31,7 +31,7 @@ Loophole know the username and password of the admin panel of the network Mikrot
 -------------------------------------
 
 ### _☣ Available command line options_
-[`READ MikrotikSploi WIKI`](https://github.com/HathemAhmed/MikrotikSploi/wiki/Usage)
+[`READ MikrotikSploi WIKI`](https://github.com/HathemAhmed/MikrotikSploi/wiki)
 
     usage: MikrotikSploit [options]
     
