@@ -15,12 +15,17 @@
 import os
 import sys
 import time
-import requests
 from re import split as SP
 from random import randint
 sys.path.append('../modules/')
 from tools import agent as _USER_AGENT
 from color import *
+try:
+    import requests
+except ImportError:
+    print("[!] Error import 'requests' model")
+    exit()
+    
 
 
 def write(M, T):
