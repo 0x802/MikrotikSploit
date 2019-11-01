@@ -79,8 +79,8 @@ $ python3 MikrotikSploit.py
 - open the command prompt **cmd**.
 ```
 > cd c:/MikrotikSploit-master
-> python -m pip install -r requirements.txt
-> python MikrotikSploit.py
+> py -m pip install -r requirements.txt
+> py MikrotikSploit.py
 ```
 
 -------------------------------------
