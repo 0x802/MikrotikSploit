@@ -49,7 +49,7 @@ Loophole know the username and password of the admin panel of the network Mikrot
 MikrotikSploi in DOCKER !!.
 
 ```bash
-$ git clone https://github.com/HathemAhmed/MikrotikSploit.git
+$ git clone https://github.com/0x802/MikrotikSploit.git
 $ cd MikrotikSploit
 $ python3 -m pip install -r requirements.txt
 $ python3 MikrotikSploit.py
@@ -62,7 +62,7 @@ $ python3 MikrotikSploit.py
 ```BASH
 $ pkg update
 $ pkg install -y git
-$ git clone https://github.com/HathemAhmed/MikrotikSploit.git
+$ git clone https://github.com/0x802/MikrotikSploit.git
 $ cd MikrotikSploit
 $ chmod +x setup.py
 $ ./setup.py install
@@ -73,7 +73,7 @@ $ python3 MikrotikSploit.py
 
 ### _☣ Install MikrotikSploit in Windows_
 
-- [click here](https://github.com/HathemAhmed/MikrotikSploit/archive/master.zip) to download MikrotikSploit
+- [click here](https://github.com/0x802/MikrotikSploit/archive/master.zip) to download MikrotikSploit
 - download and install python3
 - unzip **MikrotikSploit-master.zip** in ***c:/***
 - open the command prompt **cmd**.
