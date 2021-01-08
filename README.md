@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/HathemAhmed/MikrotikSploit"><img src="https://www.charbase.com/images/glyph/9763" alt="MikrotikSploit"></a>
+  <a href="https://github.com/0x802/MikrotikSploit"><img src="https://www.charbase.com/images/glyph/9763" alt="MikrotikSploit"></a>
   <br>
   MikrotikSploit
   <br>
@@ -9,7 +9,7 @@
 <h4 align="center">MikrotikSploit is a script that searches for and exploits Mikrotik network vulnerabilities</h4>
 
 
-![Screenshot from 2019-06-19 05-22-04](https://raw.githubusercontent.com/HathemAhmed/MikrotikSploit/master/modules/images/b1.png)
+![Screenshot from 2019-06-19 05-22-04](https://raw.githubusercontent.com/0x802/MikrotikSploit/master/modules/images/b1.png)
 
 
 
@@ -31,7 +31,7 @@ Loophole know the username and password of the admin panel of the network Mikrot
 -------------------------------------
 
 ### _☣ Available command line options_
-[`READ MikrotikSploi WIKI`](https://github.com/HathemAhmed/MikrotikSploit/wiki)
+[`READ MikrotikSploi WIKI`](https://github.com/0x802/MikrotikSploit/wiki)
 
     usage: MikrotikSploit [options]
     
@@ -93,10 +93,3 @@ $ python3 MikrotikSploit.py
 ### :warning: Warning!
 
 ***I Am Not Responsible of any Illegal Use***
-
--------------------------------------
-
-### _☣ Contribution & License_
-
-Do you want to have a conversation in private? email me : hathem63636@gmail.com
-
