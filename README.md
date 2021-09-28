@@ -64,8 +64,6 @@ $ pkg update
 $ pkg install -y git
 $ git clone https://github.com/0x802/MikrotikSploit.git
 $ cd MikrotikSploit
-$ chmod +x setup.py
-$ ./setup.py install
 $ python3 -m pip install -r requirements.txt
 $ python3 MikrotikSploit.py
 ```
